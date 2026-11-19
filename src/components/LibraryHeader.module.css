@@ -1,0 +1,326 @@
+.headerRoot {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.headerScrolled {
+  box-shadow: 0 6px 24px rgba(15, 39, 75, 0.08);
+  border-bottom-color: var(--border-strong);
+}
+
+.utilityBar {
+  background-color: var(--gou-blue-950);
+  color: var(--ink-inverse-muted);
+  font-size: 0.775rem;
+  border-bottom: 2px solid var(--gou-green-600);
+}
+
+.utilityInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 34px;
+}
+
+.utilityMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.utilityPhone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink-inverse);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.utilityPhone:hover {
+  color: var(--gou-gold-500);
+}
+
+.utilityDivider {
+  width: 1px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.utilityHoursBadge {
+  color: #a9e5be;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.utilityLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  list-style: none;
+}
+
+.utilityLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--ink-inverse-muted);
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.utilityLink:hover {
+  color: var(--ink-inverse);
+}
+
+.navBar {
+  background-color: transparent;
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--header-height);
+}
+
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.crestWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  background-color: var(--surface-white);
+  box-shadow: var(--shadow-xs);
+}
+
+.crestImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brandInstitution {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--gou-blue-900);
+  letter-spacing: -0.01em;
+}
+
+.brandUnit {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gou-green-700);
+  margin-top: 2px;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  list-style: none;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.48rem 0.68rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--gou-blue-900);
+  background-color: var(--gou-blue-50);
+}
+
+.navLinkActive {
+  color: var(--gou-blue-900);
+  background-color: var(--gou-blue-50);
+}
+
+.navLinkActive::after {
+  content: "";
+  position: absolute;
+  left: 0.68rem;
+  right: 0.68rem;
+  bottom: 3px;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background-color: var(--gou-green-600);
+}
+
+.catalogueCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.58rem 1.08rem;
+  background-color: var(--gou-blue-800);
+  color: var(--ink-inverse);
+  font-size: 0.855rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  box-shadow: var(--shadow-xs);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.catalogueCta:hover {
+  background-color: var(--gou-blue-900);
+  transform: translateY(-1px);
+}
+
+.mobileToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-white);
+  color: var(--gou-blue-900);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mobileToggle:hover {
+  background-color: var(--gou-blue-50);
+  border-color: var(--gou-blue-800);
+}
+
+.mobileMenu {
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--surface-white);
+  padding-block: 1rem 1.5rem;
+  box-shadow: 0 18px 34px rgba(15, 39, 75, 0.14);
+}
+
+.mobileList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.mobileLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.78rem 0.9rem;
+  font-size: 0.96875rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid transparent;
+}
+
+.mobileLink:hover {
+  background-color: var(--gou-blue-50);
+  color: var(--gou-blue-900);
+}
+
+.mobileLinkActive {
+  background-color: var(--gou-blue-50);
+  color: var(--gou-blue-900);
+  border-left-color: var(--gou-green-600);
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mobileCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: var(--gou-blue-800);
+  color: var(--ink-inverse);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+
+.mobileUtilityRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding-top: 0.35rem;
+  font-size: 0.84rem;
+  color: var(--ink-secondary);
+}
+
+.mobileUtilityLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+@media (max-width: 960px) {
+  .utilityLinks {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .utilityDivider,
+  .utilityHoursBadge {
+    display: none;
+  }
+
+  .brandInstitution {
+    font-size: 0.92rem;
+  }
+}
+
+@media (min-width: 1120px) {
+  .desktopNav {
+    display: flex;
+  }
+
+  .mobileToggle,
+  .mobileMenu {
+    display: none;
+  }
+}

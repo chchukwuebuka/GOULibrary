@@ -1,0 +1,93 @@
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.55rem;
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.serviceCard:hover {
+  border-color: var(--gou-blue-800);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(-2px);
+}
+
+.serviceTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.serviceIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background-color: var(--gou-blue-50);
+  color: var(--gou-blue-800);
+}
+
+.statusTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.statusDotVerified {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--gou-green-600);
+}
+
+.statusDotPending {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--gou-gold-500);
+}
+
+.serviceTitle {
+  font-size: 1.14rem;
+  font-weight: 700;
+  color: var(--gou-blue-900);
+  margin-bottom: 0.5rem;
+}
+
+.serviceDescription {
+  font-size: 0.895rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.noticeSpacing {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 1100px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,63 @@
+.notFoundSection {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+  background-color: var(--surface-light);
+}
+
+.notFoundCard {
+  max-width: 680px;
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 3.25rem);
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-subtle);
+  border-top: 4px solid var(--gou-blue-800);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--gou-blue-50);
+  color: var(--gou-blue-800);
+  border: 1px solid var(--gou-blue-100);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.15rem;
+}
+
+.title {
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 700;
+  color: var(--gou-blue-900);
+  margin-bottom: 0.85rem;
+}
+
+.message {
+  font-size: 1.02rem;
+  color: var(--ink-secondary);
+  line-height: 1.68;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .actions > a {
+    width: 100%;
+  }
+}

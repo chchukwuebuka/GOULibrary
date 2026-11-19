@@ -1,0 +1,227 @@
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(2rem, 4.5vw, 3.75rem);
+  align-items: start;
+}
+
+.mediaStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.photoCard {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-light);
+  box-shadow: var(--shadow-subtle);
+}
+
+.readingPhoto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.photoCaption {
+  padding: 0.72rem 1.05rem;
+  font-size: 0.79rem;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.librarianCard {
+  display: flex;
+  align-items: center;
+  gap: 1.05rem;
+  padding: 1.2rem;
+  background-color: var(--surface-light);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--gou-blue-800);
+  border-radius: var(--radius-md);
+}
+
+.portraitFrame {
+  width: 78px;
+  height: 78px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+}
+
+.portraitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.librarianLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gou-green-700);
+  margin-bottom: 0.2rem;
+}
+
+.librarianName {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--gou-blue-900);
+  margin-bottom: 0.25rem;
+}
+
+.librarianNote {
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  line-height: 1.48;
+}
+
+.copyColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.paragraph {
+  font-size: 1.03125rem;
+  color: var(--ink-secondary);
+  line-height: 1.74;
+}
+
+.objectivesBlock {
+  margin-top: 0.4rem;
+  padding: 1.5rem 1.65rem;
+  background-color: var(--surface-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.objectivesHeading {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gou-blue-900);
+  margin-bottom: 1rem;
+}
+
+.objectivesList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.objectiveItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+  line-height: 1.58;
+}
+
+.objectiveIndex {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  background-color: var(--gou-blue-100);
+  color: var(--gou-blue-800);
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.visionMissionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: clamp(2.25rem, 4.5vw, 3.25rem);
+}
+
+.statementBlock {
+  padding: 2rem;
+  border-radius: var(--radius-md);
+}
+
+.visionBlock {
+  background-color: var(--gou-blue-900);
+  color: var(--ink-inverse);
+  border: 1px solid var(--gou-blue-900);
+}
+
+.missionBlock {
+  background-color: var(--surface-light);
+  color: var(--ink-primary);
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--gou-green-600);
+}
+
+.statementHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.95rem;
+}
+
+.statementTitleInverse {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink-inverse);
+}
+
+.statementTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gou-blue-900);
+}
+
+.statementIconGold {
+  color: var(--gou-gold-500);
+}
+
+.statementIconGreen {
+  color: var(--gou-green-600);
+}
+
+.statementTextInverse {
+  font-size: 0.985rem;
+  color: var(--ink-inverse-muted);
+  line-height: 1.72;
+}
+
+.statementText {
+  font-size: 0.975rem;
+  color: var(--ink-secondary);
+  line-height: 1.72;
+}
+
+.noticeMargin {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 920px) {
+  .aboutGrid,
+  .visionMissionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .librarianCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

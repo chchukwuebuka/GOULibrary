@@ -1,0 +1,146 @@
+:root {
+  /* Institutional Colour System — Harmonised with official GOUNI assets */
+  --gou-blue-950: #081833;
+  --gou-blue-900: #0f274b;
+  --gou-blue-800: #173b70;
+  --gou-blue-700: #1f4884;
+  --gou-blue-600: #113791;
+  --gou-blue-100: #e7eef8;
+  --gou-blue-50: #f2f6fc;
+
+  --gou-green-700: #1c6538;
+  --gou-green-600: #27834a;
+  --gou-green-500: #3db166;
+  --gou-green-100: #e6f4eb;
+
+  --gou-gold-600: #997214;
+  --gou-gold-500: #d5aa38;
+  --gou-gold-100: #fbf4de;
+
+  /* Architectural Neutrals & Ink */
+  --surface-white: #ffffff;
+  --surface-light: #f7f8fa;
+  --surface-subtle: #edf1f6;
+  --border-subtle: #e1e7f0;
+  --border-strong: #c6d0df;
+
+  --ink-primary: #1c2430;
+  --ink-secondary: #465162;
+  --ink-muted: #647082;
+  --ink-inverse: #ffffff;
+  --ink-inverse-muted: #d5e0f4;
+
+  /* Layout & Rhythm */
+  --container-max: 1240px;
+  --container-gutter: clamp(1.25rem, 3.2vw, 2.5rem);
+  --section-space: clamp(4rem, 6.5vw, 5.75rem);
+  --header-height: 70px;
+
+  /* Shape & Natural Elevation (No Gradients) */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --shadow-xs: 0 1px 2px rgba(15, 39, 75, 0.04);
+  --shadow-subtle: 0 4px 14px rgba(15, 39, 75, 0.05), 0 1px 3px rgba(15, 39, 75, 0.04);
+  --shadow-elevated: 0 14px 34px rgba(15, 39, 75, 0.09), 0 3px 8px rgba(15, 39, 75, 0.04);
+  --transition-fast: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 2.5rem);
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-white);
+  color: var(--ink-primary);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), Georgia, "Times New Roman", serif;
+  color: var(--gou-blue-900);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gou-blue-800);
+  outline-offset: 3px;
+}
+
+.skipLink {
+  position: absolute;
+  top: -120px;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--gou-blue-800);
+  color: var(--ink-inverse);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-sm);
+  transition: top var(--transition-fast);
+}
+
+.skipLink:focus {
+  top: 1rem;
+}
