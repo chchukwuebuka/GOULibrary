@@ -201,15 +201,14 @@ export function LibraryHeader() {
               <Menu size={22} aria-hidden="true" />
             )}
           </button>
-        </div >
+        </div>
 
-    {
-      mobileOpen?(
+        {mobileOpen ? (
           <nav
-            id = "mobile-library-nav"
-            className = { styles.mobileMenu }
-            aria- label="Mobile library navigation"
-    >
+            id="mobile-library-nav"
+            className={styles.mobileMenu}
+            aria-label="Mobile library navigation"
+          >
             <div className={shared.container}>
               <ul className={styles.mobileList}>
                 {LIBRARY_NAV_ITEMS.map((item) => {
@@ -267,12 +266,11 @@ export function LibraryHeader() {
                     )
                   )}
                 </div>
-              </div >
-            </div >
-          </nav >
-        ) : null
-}
-      </div >
-    </header >
+              </div>
+            </div>
+          </nav>
+        ) : null}
+      </div>
+    </header>
   );
 }
