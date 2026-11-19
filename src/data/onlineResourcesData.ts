@@ -160,6 +160,28 @@ export const ONLINE_RESOURCES_LIST: OnlineResourceItem[] = [
     url: "https://doaj.org/",
   },
   {
+    id: "medline",
+    title: "Medline (Open Access)",
+    category: "journals",
+    accessType: "open",
+    subjectArea: "Medicine & Biomedical Sciences",
+    description:
+      "U.S. National Library of Medicine premier bibliographic database covering medicine, nursing, dentistry, and life sciences.",
+    accessInstruction: "Open access via the U.S. National Library of Medicine portal.",
+    url: "https://www.nlm.nih.gov",
+  },
+  {
+    id: "jama",
+    title: "JAMA Network (Open Access)",
+    category: "journals",
+    accessType: "open",
+    subjectArea: "Clinical & Medical Journals",
+    description:
+      "Journal of the American Medical Association network offering open-access clinical research, reviews, and medical scholarship.",
+    accessInstruction: "Open access to public JAMA articles and research.",
+    url: "https://www.jamanetwork.com",
+  },
+  {
     id: "pubmed",
     title: "PubMed",
     category: "journals",
@@ -204,6 +226,125 @@ export const ONLINE_RESOURCES_LIST: OnlineResourceItem[] = [
     url: "https://www.omicsonline.org/",
   },
   {
+    id: "proquest-research-library",
+    title: "ProQuest Research Library",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "Multidisciplinary Research",
+    description:
+      "Broad academic database spanning thousands of scholarly journals, dissertations, and periodicals across humanities, sciences, business, and social sciences.",
+    accessInstruction:
+      "Official GOUNI Database — log in via ProQuest or obtain institutional credentials from the Library Desk.",
+    url: "https://www.proquest.com",
+  },
+  {
+    id: "proquest-central",
+    title: "ProQuest Central",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "Comprehensive Multidisciplinary Databases",
+    description:
+      "Aggregated ProQuest collection bringing together core academic databases across business, health, social sciences, technology, and humanities.",
+    accessInstruction:
+      "Official GOUNI Database — ask a librarian for current institutional login information.",
+    url: "https://www.proquest.com",
+  },
+  {
+    id: "ebscohost",
+    title: "EBSCOhost",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "Multidisciplinary Academic Research",
+    description:
+      "Full-text research databases and discovery platform supporting undergraduate, postgraduate, and faculty literature searches.",
+    accessInstruction:
+      "Official GOUNI Database — request active access credentials at the Library Desk.",
+    url: "https://www.ebsco.com",
+  },
+  {
+    id: "sciencedirect",
+    title: "ScienceDirect",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "Science, Engineering & Health",
+    description:
+      "Elsevier’s peer-reviewed platform of scientific, technical, and medical journals and reference books.",
+    accessInstruction:
+      "Official GOUNI Database — confirm campus IP or institutional access details with library staff.",
+    url: "https://www.sciencedirect.com",
+  },
+  {
+    id: "nwlr-online",
+    title: "Nigerian Weekly Law Report (NWLR) Online",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "Law & Nigerian Case Reports",
+    description:
+      "Authoritative digital archive of Nigerian Supreme Court and Court of Appeal judgments from Nigerian Weekly Law Reports.",
+    accessInstruction:
+      "Log in via nwlronline.com — obtain institutional login credentials from the Law / Main Library Desk.",
+    url: "http://nwlronline.com/",
+  },
+  {
+    id: "lexisnexis",
+    title: "LexisNexis",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "International & Comparative Law",
+    description:
+      "Global legal, regulatory, and scholarly research platform covering statutes, case law, and legal periodicals.",
+    accessInstruction:
+      "Official GOUNI Database — contact the Library Desk for institutional sign-in details.",
+    url: "https://www.lexisnexis.com",
+  },
+  {
+    id: "lawpavilion",
+    title: "LawPavilion (Primsol)",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "Nigerian Electronic Law Reports",
+    description:
+      "Nigeria’s legal research and electronic law reporting suite providing appellate decisions, statutes, and legal analytics.",
+    accessInstruction:
+      "Log in via primsol.lawpavilion.com — request authorised campus credentials from library personnel.",
+    url: "https://primsol.lawpavilion.com",
+  },
+  {
+    id: "databases-ng",
+    title: "Databases (databases.com.ng)",
+    category: "databases",
+    accessType: "librarian-assisted",
+    subjectArea: "Multidisciplinary Research Portal",
+    description:
+      "Subscribed academic database portal providing curated scholarly and reference collections for university research.",
+    accessInstruction:
+      "Log in via databases.com.ng — consult library staff for active institutional access details.",
+    url: "https://www.databases.com.ng",
+  },
+  {
+    id: "buku",
+    title: "BUKU",
+    category: "ebooks",
+    accessType: "librarian-assisted",
+    subjectArea: "Digital Academic Textbooks",
+    description:
+      "Academic e-textbook and digital learning platform listed on the official GOUNI databases directory.",
+    accessInstruction:
+      "Confirm exact BUKU portal link and student login instructions with the Library Desk.",
+  },
+  {
+    id: "gouni-turnitin",
+    title: "GOUNI Turnitin",
+    category: "repository",
+    accessType: "librarian-assisted",
+    subjectArea: "Academic Integrity & Originality Check",
+    description:
+      "Godfrey Okoye University’s Turnitin similarity and academic integrity portal supporting thesis, project, and research verification.",
+    accessInstruction:
+      "Log in via gouni.turnitin.com using university-issued instructor or postgraduate credentials.",
+    url: "https://gouni.turnitin.com/",
+  },
+  {
     id: "jstor",
     title: "JSTOR (Including Global Plants & Aluka Archives)",
     category: "databases",
@@ -212,8 +353,8 @@ export const ONLINE_RESOURCES_LIST: OnlineResourceItem[] = [
     description:
       "Archival backfiles of over 1,500 core scholarly journals across disciplines, plus JSTOR Global Plants, African World Heritage Sites, and Southern African Struggles for Freedom.",
     accessInstruction:
-      "Institutional username: godfreyokoye — ask a librarian for current password and sub-collection access.",
-    url: "https://www.jstor.org/action/showLogin",
+      "Official GOUNI Database (jstor.org) — ask a librarian for current password and institutional access.",
+    url: "https://www.jstor.org",
     secondaryUrl: "https://plants.jstor.org/",
     secondaryLabel: "JSTOR Global Plants",
   },
@@ -290,14 +431,15 @@ export const ONLINE_RESOURCES_LIST: OnlineResourceItem[] = [
   },
   {
     id: "proquest-collections",
-    title: "ProQuest Subject Databases (ABI/INFORM & Specialized Collections)",
+    title: "ProQuest Specialized Subject Collections",
     category: "databases",
     accessType: "librarian-assisted",
     subjectArea: "Business, Law, Health, Humanities, Computing & Sciences",
     description:
-      "Includes ABI/INFORM, Accounting Tax & Banking, Arts & Humanities, Biology, Business Market Research, Computing, Education, Family Health, Health & Medical, Health Management, Library Science, Linguistics, Nursing & Allied Health, Political Science, ProQuest Central, Psychology, Public Health, Religion, Research Library, Science, Social Science, Sociology, Telecommunications, and Regional Databases listed in the 2017 library directory.",
+      "Specialized collections including ABI/INFORM, Accounting Tax & Banking, Arts & Humanities, Biology, Business Market Research, Computing, Education, Family Health, Health & Medical, Health Management, Library Science, Linguistics, Nursing & Allied Health, Political Science, Psychology, Public Health, Religion, Science, Social Science, Sociology, and Telecommunications.",
     accessInstruction:
-      "Ask a librarian to confirm current ProQuest subscription status and access credentials (legacy links used temporary trial tokens).",
+      "Accessible via ProQuest (www.proquest.com) — ask a librarian to confirm current subject-pack login details.",
+    url: "https://www.proquest.com",
   },
   {
     id: "edx",

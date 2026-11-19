@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { ExternalLink } from "lucide-react";
 import uniLogoImg from "../../public/images/gou-uni-logo.png";
+import { SectionLink } from "@/components/SectionLink";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
 import { FOOTER_COLUMNS } from "@/data/libraryNavigation";
 import shared from "@/styles/shared.module.css";
@@ -135,9 +135,9 @@ export function LibraryFooter() {
                         <ExternalLink size={12} aria-hidden="true" />
                       </a>
                     ) : (
-                      <Link href={link.href} className={styles.footerLink}>
+                      <SectionLink href={link.href} className={styles.footerLink}>
                         <span>{link.label}</span>
-                      </Link>
+                      </SectionLink>
                     )}
                   </li>
                 ))}
@@ -200,6 +200,6 @@ export function LibraryFooter() {
           </p>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }

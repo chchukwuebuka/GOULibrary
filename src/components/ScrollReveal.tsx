@@ -23,7 +23,7 @@ interface ScrollRevealProps {
 
 /**
  * Progressive-enhancement scroll reveal using native IntersectionObserver with zero external dependencies.
- * Content starts visible on SSR and only animates elements positioned below the initial viewport.
+ * Content starts visible on SSR and reliably reveals whenever an element enters or passes the viewport.
  */
 export function ScrollReveal({
   children,
@@ -49,35 +49,56 @@ export function ScrollReveal({
       return;
     }
 
-    const rect = element.getBoundingClientRect();
-    const isBelowFold = rect.top > window.innerHeight * 0.94;
+    const checkAndReveal = () => {
+      const rect = element.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.98) {
+        element.dataset.reveal = "visible";
+        return true;
+      }
+      return false;
+    };
 
-    if (!isBelowFold) {
-      element.dataset.reveal = "visible";
-      return;
-    }
+      if (checkAndReveal()) {
+        return;
+      }
 
-    element.dataset.reveal = "hidden";
+      element.dataset.reveal = "hidden";
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
-            element.dataset.reveal = "visible";
-            observer.disconnect();
-            break;
-          }
-        }
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -32px 0px",
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+              if (
+                entry.isIntersecting ||
+                entry.boundingClientRect.top <= window.innerHeight * 0.98
+              ) {
+                element.dataset.reveal = "visible";
+                observer.disconnect();
+                break;
+              }
+            }
+          },
+          {
+                threshold: 0.01,
+                  rootMargin: "0px 0px -12px 0px",
       }
     );
 
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
+      const handleSync = () => {
+        if (checkAndReveal()) {
+          observer.disconnect();
+        }
+      };
+
+      observer.observe(element);
+      window.addEventListener("gouni:reveal-sync", handleSync);
+      window.addEventListener("hashchange", handleSync);
+
+      return () => {
+        observer.disconnect();
+        window.removeEventListener("gouni:reveal-sync", handleSync);
+        window.removeEventListener("hashchange", handleSync);
+      };
+    }, []);
 
   const classes = [
     styles.revealItem,

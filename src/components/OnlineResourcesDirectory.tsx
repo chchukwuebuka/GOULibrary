@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import {
   ArrowLeft,
   ChevronRight,
@@ -37,13 +37,14 @@ const ACCESS_LABELS: Record<ResourceAccessType, string> = {
  * Interactive in-app directory of GOUNI e-books, journals, Research4Life databases, and repositories.
  */
 export function OnlineResourcesDirectory() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const urlCategory = searchParams.get("category") ?? "all";
-  const selectedCategory: CategoryFilter = VALID_CATEGORIES.has(urlCategory)
+  const initialCategory: CategoryFilter = VALID_CATEGORIES.has(urlCategory)
     ? (urlCategory as CategoryFilter)
     : "all";
 
+  const [selectedCategory, setSelectedCategory] =
+    useState<CategoryFilter>(initialCategory);
   const [selectedAccess, setSelectedAccess] = useState<AccessFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -63,17 +64,19 @@ export function OnlineResourcesDirectory() {
   });
 
   const selectCategory = (categoryId: CategoryFilter) => {
+    setSelectedCategory(categoryId);
     const targetUrl =
       categoryId === "all"
         ? "/online-resources"
         : `/online-resources?category=${categoryId}`;
-    router.replace(targetUrl, { scroll: false });
+    window.history.replaceState(null, "", targetUrl);
   };
 
   const resetFilters = () => {
+    setSelectedCategory("all");
     setSelectedAccess("all");
     setSearchQuery("");
-    router.replace("/online-resources", { scroll: false });
+    window.history.replaceState(null, "", "/online-resources");
   };
 
   return (
@@ -272,7 +275,7 @@ export function OnlineResourcesDirectory() {
           )}
 
           <VerificationNotice
-            message="This resource catalogue consolidates the official Godfrey Okoye University online resources list (last dated 1 November 2017 on the legacy portal). Active publisher subscriptions, Research4Life passwords, and ProQuest renewal status should be confirmed with library personnel before use."
+            message="This directory combines Godfrey Okoye University’s listed databases (including ProQuest, EBSCOhost, ScienceDirect, JSTOR, LawPavilion, LexisNexis, NWLR Online, Medline, JAMA, and GOUNI Turnitin) with legacy open-access portal entries. Active login credentials and the BUKU portal URL should be confirmed with library personnel."
             className={styles.noticeTop}
           />
         </div>

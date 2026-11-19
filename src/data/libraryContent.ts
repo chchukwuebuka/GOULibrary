@@ -108,11 +108,11 @@ export const RESOURCE_CATEGORIES: ResourceCategory[] = [
     title: "Research Databases",
     icon: "database",
     description:
-      "Multidisciplinary scholarly databases including Research4Life programmes (AGORA, ARDI, HINARI, OARE), JSTOR, ERIC, and ProQuest collections.",
+      "Subscribed and open-access research databases including ProQuest, EBSCOhost, ScienceDirect, JSTOR, LawPavilion, LexisNexis, Medline, and GOUNI Turnitin.",
     highlights: [
-      "Research4Life & JSTOR portals",
-      "NUC Nigerian Virtual Library & ERIC",
-      "Access credentials via Library Desk",
+      "ProQuest, EBSCOhost & ScienceDirect",
+      "LawPavilion, LexisNexis & NWLR Online",
+      "JSTOR, Medline, JAMA & GOUNI Turnitin",
     ],
     actionLabel: "Explore Research Databases",
     actionHref: "/online-resources?category=databases",
@@ -144,6 +144,129 @@ export const RESOURCE_CATEGORIES: ResourceCategory[] = [
     ],
     actionLabel: "View Digital Media & Reference Guide",
     actionHref: LIBRARY_CONFIG.portals.digitalMedia,
+  },
+];
+
+export interface GouniDatabaseEntry {
+  id: string;
+  title: string;
+  discipline: string;
+  accessMode: "Institutional Login" | "Open Access" | "Confirm Link";
+  actionLabel: string;
+  url?: string;
+}
+
+export const GOUNI_DATABASES: GouniDatabaseEntry[] = [
+  {
+    id: "proquest-research-library",
+    title: "ProQuest Research Library",
+    discipline: "Multidisciplinary",
+    accessMode: "Institutional Login",
+    actionLabel: "www.proquest.com",
+    url: "https://www.proquest.com",
+  },
+  {
+    id: "ebscohost",
+    title: "EBSCOhost",
+    discipline: "Multidisciplinary",
+    accessMode: "Institutional Login",
+    actionLabel: "ebsco.com",
+    url: "https://www.ebsco.com",
+  },
+  {
+    id: "sciencedirect",
+    title: "ScienceDirect",
+    discipline: "Science & Technology",
+    accessMode: "Institutional Login",
+    actionLabel: "sciencedirect.com",
+    url: "https://www.sciencedirect.com",
+  },
+  {
+    id: "proquest-central",
+    title: "ProQuest Central",
+    discipline: "Multidisciplinary",
+    accessMode: "Institutional Login",
+    actionLabel: "www.proquest.com",
+    url: "https://www.proquest.com",
+  },
+  {
+    id: "ajol",
+    title: "AJOL (African Journals Online)",
+    discipline: "African Journals",
+    accessMode: "Open Access",
+    actionLabel: "ajol.info",
+    url: "https://www.ajol.info",
+  },
+  {
+    id: "jstor",
+    title: "JSTOR",
+    discipline: "Humanities & Social Sciences",
+    accessMode: "Institutional Login",
+    actionLabel: "jstor.org",
+    url: "https://www.jstor.org",
+  },
+  {
+    id: "medline",
+    title: "Medline",
+    discipline: "Medicine & Health",
+    accessMode: "Open Access",
+    actionLabel: "nlm.nih.gov",
+    url: "https://www.nlm.nih.gov",
+  },
+  {
+    id: "jama",
+    title: "JAMA",
+    discipline: "Medical Journals",
+    accessMode: "Open Access",
+    actionLabel: "jamanetwork.com",
+    url: "https://www.jamanetwork.com",
+  },
+  {
+    id: "nwlr-online",
+    title: "Nigerian Weekly Law Report Online",
+    discipline: "Law & Legal Research",
+    accessMode: "Institutional Login",
+    actionLabel: "nwlronline.com",
+    url: "http://nwlronline.com/",
+  },
+  {
+    id: "lexisnexis",
+    title: "LexisNexis",
+    discipline: "Law & Legal Research",
+    accessMode: "Institutional Login",
+    actionLabel: "www.lexisnexis.com",
+    url: "https://www.lexisnexis.com",
+  },
+  {
+    id: "lawpavilion",
+    title: "LawPavilion",
+    discipline: "Nigerian Law Reports",
+    accessMode: "Institutional Login",
+    actionLabel: "primsol.lawpavilion.com",
+    url: "https://primsol.lawpavilion.com",
+  },
+  {
+    id: "databases-ng",
+    title: "Databases",
+    discipline: "Academic Portal",
+    accessMode: "Institutional Login",
+    actionLabel: "databases.com.ng",
+    url: "https://www.databases.com.ng",
+  },
+  {
+    id: "buku",
+    title: "BUKU",
+    discipline: "Digital Textbooks & Study",
+    accessMode: "Confirm Link",
+    actionLabel: "Confirm portal URL with Library Desk",
+  },
+  {
+    id: "gouni-turnitin",
+    title: "GOUNI Turnitin",
+    discipline: "Academic Integrity",
+    accessMode: "Institutional Login",
+    actionLabel: "gouni.turnitin.com",
+    url: "https://gouni.turnitin.com/",
   },
 ];
 

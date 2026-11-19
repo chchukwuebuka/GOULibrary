@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookSearch, ExternalLink, Menu, Phone, X } from "lucide-react";
 import crestImg from "../../public/images/gou-crest.jpg";
+import { SectionLink } from "@/components/SectionLink";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
 import {
   HEADER_UTILITY_LINKS,
@@ -15,7 +16,7 @@ import shared from "@/styles/shared.module.css";
 import styles from "./LibraryHeader.module.css";
 
 /**
- * Official sticky institutional header supporting landing section tracking and in-app subpages.
+ * Official sticky institutional header supporting reliable smooth section scrolling and subpage navigation.
  */
 export function LibraryHeader() {
   const pathname = usePathname();
@@ -54,7 +55,7 @@ export function LibraryHeader() {
       },
       {
         rootMargin: "-20% 0px -65% 0px",
-        threshold: [0.1, 0.35],
+        threshold: [0.05, 0.25],
       }
     );
 
@@ -73,7 +74,12 @@ export function LibraryHeader() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileOpen]);
 
-  const closeMenu = () => setMobileOpen(false);
+  const handleSectionNavigate = (sectionId?: string) => {
+    setMobileOpen(false);
+    if (sectionId) {
+      setActiveSection(sectionId);
+    }
+  };
 
   return (
     <header
@@ -125,7 +131,11 @@ export function LibraryHeader() {
 
       <div className={styles.navBar}>
         <div className={`${shared.container} ${styles.navInner}`}>
-          <Link href="/#home" className={styles.brandLink} onClick={closeMenu}>
+          <SectionLink
+            href="/#home"
+            className={styles.brandLink}
+            onNavigate={handleSectionNavigate}
+          >
             <span className={styles.crestWrap}>
               <Image
                 src={crestImg}
@@ -142,7 +152,7 @@ export function LibraryHeader() {
               </span>
               <span className={styles.brandUnit}>University Library</span>
             </span>
-          </Link>
+          </SectionLink>
 
           <nav className={styles.desktopNav} aria-label="Primary library navigation">
             <ul className={styles.navList}>
@@ -150,26 +160,31 @@ export function LibraryHeader() {
                 const isActive = isHome && activeSection === item.sectionId;
                 return (
                   <li key={item.sectionId}>
-                    <Link
+                    <SectionLink
                       href={item.href}
+                      onNavigate={handleSectionNavigate}
                       className={
                         isActive
                           ? `${styles.navLink} ${styles.navLinkActive}`
                           : styles.navLink
                       }
-                      aria-current={isActive ? "location" : undefined}
+                      ariaCurrent={isActive ? "location" : undefined}
                     >
                       {item.label}
-                    </Link>
+                    </SectionLink>
                   </li>
                 );
               })}
             </ul>
 
-            <Link href="/#catalogue" className={styles.catalogueCta}>
+            <SectionLink
+              href="/#catalogue"
+              className={styles.catalogueCta}
+              onNavigate={handleSectionNavigate}
+            >
               <BookSearch size={16} aria-hidden="true" />
               <span>Library Catalogue</span>
-            </Link>
+            </SectionLink>
           </nav>
 
           <button
@@ -186,46 +201,47 @@ export function LibraryHeader() {
               <Menu size={22} aria-hidden="true" />
             )}
           </button>
-        </div>
+        </div >
 
-        {mobileOpen ? (
+    {
+      mobileOpen?(
           <nav
-            id="mobile-library-nav"
-            className={styles.mobileMenu}
-            aria-label="Mobile library navigation"
-          >
+            id = "mobile-library-nav"
+            className = { styles.mobileMenu }
+            aria- label="Mobile library navigation"
+    >
             <div className={shared.container}>
               <ul className={styles.mobileList}>
                 {LIBRARY_NAV_ITEMS.map((item) => {
                   const isActive = isHome && activeSection === item.sectionId;
                   return (
                     <li key={item.sectionId}>
-                      <Link
+                      <SectionLink
                         href={item.href}
-                        onClick={closeMenu}
+                        onNavigate={handleSectionNavigate}
                         className={
                           isActive
                             ? `${styles.mobileLink} ${styles.mobileLinkActive}`
                             : styles.mobileLink
                         }
-                        aria-current={isActive ? "location" : undefined}
+                        ariaCurrent={isActive ? "location" : undefined}
                       >
                         <span>{item.label}</span>
-                      </Link>
+                      </SectionLink>
                     </li>
                   );
                 })}
               </ul>
 
               <div className={styles.mobileActions}>
-                <Link
+                <SectionLink
                   href="/#catalogue"
-                  onClick={closeMenu}
+                  onNavigate={handleSectionNavigate}
                   className={styles.mobileCta}
                 >
                   <BookSearch size={18} aria-hidden="true" />
                   <span>Library Catalogue</span>
-                </Link>
+                </SectionLink>
                 <div className={styles.mobileUtilityRow}>
                   {HEADER_UTILITY_LINKS.map((link) =>
                     link.external ? (
@@ -243,7 +259,7 @@ export function LibraryHeader() {
                       <Link
                         key={link.label}
                         href={link.href}
-                        onClick={closeMenu}
+                        onClick={() => setMobileOpen(false)}
                         className={styles.mobileUtilityLink}
                       >
                         <span>{link.label}</span>
@@ -251,11 +267,12 @@ export function LibraryHeader() {
                     )
                   )}
                 </div>
-              </div>
-            </div>
-          </nav>
-        ) : null}
-      </div>
-    </header>
+              </div >
+            </div >
+          </nav >
+        ) : null
+}
+      </div >
+    </header >
   );
 }
