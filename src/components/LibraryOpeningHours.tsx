@@ -1,4 +1,5 @@
 import { Clock, Phone } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
 import {
@@ -26,6 +27,7 @@ export function LibraryOpeningHours() {
           titleId="hours-heading"
         />
 
+        <ScrollReveal>
         <div className={styles.hoursGrid}>
           <div className={styles.scheduleCard}>
             <div className={styles.tableHeaderBar}>
@@ -98,6 +100,7 @@ export function LibraryOpeningHours() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

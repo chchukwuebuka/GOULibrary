@@ -9,6 +9,7 @@ import {
   ExternalLink,
   Search,
 } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
 import shared from "@/styles/shared.module.css";
 import styles from "./LibraryCatalogue.module.css";
@@ -77,6 +78,7 @@ export function LibraryCatalogue() {
       aria-labelledby="catalogue-heading"
     >
       <div className={shared.container}>
+        <ScrollReveal>
         <div className={styles.catalogueStage}>
           <div className={styles.stageHeader}>
             <p className={styles.eyebrow}>Library Catalogue &amp; Discovery</p>
@@ -216,6 +218,7 @@ export function LibraryCatalogue() {
             <Link href="/cataloging-policy">View Cataloging Policy</Link>).
           </p>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ import {
   Laptop,
   ShieldCheck,
 } from "lucide-react";
+import { ScrollReveal, type RevealDelayStep } from "@/components/ScrollReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
 import { REGULATION_CATEGORIES } from "@/data/libraryContent";
@@ -35,64 +36,67 @@ export function LibraryRegulations() {
         <div className={styles.rulesGrid}>
           {REGULATION_CATEGORIES.map((category, index) => {
             const Icon = CATEGORY_ICONS[index];
+            const delayStep = (index % 2) as RevealDelayStep;
             return (
-              <article key={category.id} className={styles.ruleCard}>
-                <div className={styles.ruleHeader}>
-                  <span className={styles.ruleIcon} aria-hidden="true">
-                    <Icon size={18} />
-                  </span>
-                  <h3 className={styles.ruleTitle}>{category.title}</h3>
-                </div>
+                <ScrollReveal key={category.id} delayStep={delayStep} stretch>
+                  <article className={styles.ruleCard}>
+                    <div className={styles.ruleHeader}>
+                      <span className={styles.ruleIcon} aria-hidden="true">
+                        <Icon size={18} />
+                      </span>
+                      <h3 className={styles.ruleTitle}>{category.title}</h3>
+                    </div>
 
-                <ul className={styles.ruleList}>
-                  {category.rules.map((rule) => (
-                    <li key={rule} className={styles.ruleItem}>
-                      {rule}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className={styles.ruleList}>
+                    {category.rules.map((rule) => (
+                      <li key={rule} className={styles.ruleItem}>
+                        {rule}
+                      </li>
+                    ))}
+                  </ul>
               </article>
-            );
+              </ScrollReveal>
+        );
           })}
-        </div>
+      </div>
 
-        <div className={styles.actionsBar}>
-          <p className={styles.policyMeta}>
-            <strong>Senate Governance:</strong> Drawn from the Basic Library
-            Rules (Senate approved June 2010) and Circulation Policy (amended
-            March 2011). Read the full official library policy documents right
-            here inside this portal.
-          </p>
+      <div className={styles.actionsBar}>
+        <p className={styles.policyMeta}>
+          <strong>Senate Governance:</strong> Drawn from the Basic Library
+          Rules (Senate approved June 2010) and Circulation Policy (amended
+          March 2011). Read the full official library policy documents right
+          here inside this portal.
+        </p>
 
-          <div className={styles.policyLinks}>
-            <Link
-              href={LIBRARY_CONFIG.portals.libraryRules}
-              className={shared.btnPrimary}
-            >
-              <span>View Complete Library Regulations</span>
-              <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-            <Link
-              href={LIBRARY_CONFIG.portals.circulationPolicy}
-              className={shared.btnSecondary}
-            >
-              <span>Circulation Policy</span>
-            </Link>
-            <Link
-              href={LIBRARY_CONFIG.portals.catalogingPolicy}
-              className={shared.btnSecondary}
-            >
-              <span>Cataloging Policy</span>
-            </Link>
-            <Link
-              href={LIBRARY_CONFIG.portals.collectionPolicy}
-              className={shared.btnSecondary}
-            >
-              <span>Collection Development</span>
-            </Link>
-          </div>
+        <div className={styles.policyLinks}>
+          <Link
+            href={LIBRARY_CONFIG.portals.libraryRules}
+            className={shared.btnPrimary}
+          >
+            <span>View Complete Library Regulations</span>
+            <ArrowRight size={15} aria-hidden="true" />
+          </Link>
+          <Link
+            href={LIBRARY_CONFIG.portals.circulationPolicy}
+            className={shared.btnSecondary}
+          >
+            <span>Circulation Policy</span>
+          </Link>
+          <Link
+            href={LIBRARY_CONFIG.portals.catalogingPolicy}
+            className={shared.btnSecondary}
+          >
+            <span>Cataloging Policy</span>
+          </Link>
+          <Link
+            href={LIBRARY_CONFIG.portals.collectionPolicy}
+            className={shared.btnSecondary}
+          >
+            <span>Collection Development</span>
+          </Link>
         </div>
       </div>
-    </section>
+    </div>
+    </section >
   );
 }

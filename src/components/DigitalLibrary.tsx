@@ -9,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import collaborativeStudyImg from "../../public/images/img_2088.png";
+import { ScrollReveal, type RevealDelayStep } from "@/components/ScrollReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
 import { DIGITAL_AUDIENCE_TIERS } from "@/data/libraryContent";
@@ -82,24 +83,27 @@ export function DigitalLibrary() {
         <div className={styles.audienceGrid}>
           {DIGITAL_AUDIENCE_TIERS.map((tier, index) => {
             const Icon = AUDIENCE_ICONS[index];
+            const delayStep = (index % 3) as RevealDelayStep;
             return (
-              <article key={tier.id} className={styles.audienceCard}>
-                <div className={styles.audienceHeader}>
-                  <span className={styles.audienceIconWrap} aria-hidden="true">
-                    <Icon size={19} />
-                  </span>
-                  <h3 className={styles.audienceTitle}>{tier.audience}</h3>
-                </div>
-                <p className={styles.audienceSummary}>{tier.summary}</p>
-                <ul className={styles.audienceList}>
-                  {tier.points.map((point) => (
-                    <li key={point} className={styles.audiencePoint}>
-                      <span className={styles.pointDot} aria-hidden="true" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <ScrollReveal key={tier.id} delayStep={delayStep} stretch>
+                <article className={styles.audienceCard}>
+                  <div className={styles.audienceHeader}>
+                    <span className={styles.audienceIconWrap} aria-hidden="true">
+                      <Icon size={19} />
+                    </span>
+                    <h3 className={styles.audienceTitle}>{tier.audience}</h3>
+                  </div>
+                  <p className={styles.audienceSummary}>{tier.summary}</p>
+                  <ul className={styles.audienceList}>
+                    {tier.points.map((point) => (
+                      <li key={point} className={styles.audiencePoint}>
+                        <span className={styles.pointDot} aria-hidden="true" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </ScrollReveal>
             );
           })}
         </div>

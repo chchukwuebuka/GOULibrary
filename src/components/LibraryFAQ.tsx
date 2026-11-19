@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { LIBRARY_FAQS } from "@/data/libraryFAQs";
 import shared from "@/styles/shared.module.css";
 import styles from "./LibraryFAQ.module.css";
@@ -23,6 +24,7 @@ export function LibraryFAQ() {
       aria-labelledby="faq-heading"
     >
       <div className={shared.container}>
+        <ScrollReveal>
         <div className={styles.faqLayout}>
           <div>
             <p className={shared.eyebrow}>Help &amp; Guidance</p>
@@ -106,6 +108,7 @@ export function LibraryFAQ() {
             })}
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

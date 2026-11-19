@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Building, ExternalLink, MapPin, Navigation, Phone } from "lucide-react";
 import campusGroundsImg from "../../public/images/img_2087.png";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
 import shared from "@/styles/shared.module.css";
@@ -24,6 +25,7 @@ export function LibraryLocation() {
           titleId="location-heading"
         />
 
+        <ScrollReveal>
         <div className={styles.locationGrid}>
           <div className={styles.detailsCard}>
             <div>
@@ -119,6 +121,7 @@ export function LibraryLocation() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

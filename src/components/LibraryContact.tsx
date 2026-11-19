@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Mail, MapPin, Phone, UserCheck } from "lucide-react";
+import { ScrollReveal, type RevealDelayStep } from "@/components/ScrollReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { VerificationNotice } from "@/components/VerificationNotice";
 import { LIBRARY_CONFIG } from "@/data/libraryConfig";
@@ -25,6 +26,7 @@ export function LibraryContact() {
         />
 
         <div className={styles.contactGrid}>
+          <ScrollReveal delayStep={0 as RevealDelayStep} stretch>
           <article className={styles.contactCard}>
             <span className={styles.contactIcon} aria-hidden="true">
               <UserCheck size={20} />
@@ -37,7 +39,9 @@ export function LibraryContact() {
               {LIBRARY_CONFIG.contact.librarianOffice}
             </p>
           </article>
+          </ScrollReveal>
 
+          <ScrollReveal delayStep={1 as RevealDelayStep} stretch>
           <article className={styles.contactCard}>
             <span className={styles.contactIcon} aria-hidden="true">
               <Phone size={20} />
@@ -70,7 +74,9 @@ export function LibraryContact() {
               </a>
             </p>
           </article>
+          </ScrollReveal>
 
+          <ScrollReveal delayStep={2 as RevealDelayStep} stretch>
           <article className={styles.contactCard}>
             <span className={styles.contactIcon} aria-hidden="true">
               <MapPin size={20} />
@@ -86,6 +92,7 @@ export function LibraryContact() {
               {LIBRARY_CONFIG.contact.postalBox}
             </p>
           </article>
+          </ScrollReveal>
         </div>
 
         <div className={styles.actionPanel}>

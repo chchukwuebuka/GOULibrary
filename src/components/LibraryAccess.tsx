@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { VerificationNotice } from "@/components/VerificationNotice";
 import {
@@ -38,6 +39,7 @@ export function LibraryAccess() {
           titleId="access-heading"
         />
 
+        <ScrollReveal>
         <div
           className={styles.stepsGrid}
           role="list"
@@ -58,7 +60,9 @@ export function LibraryAccess() {
             </article>
           ))}
         </div>
+        </ScrollReveal>
 
+        <ScrollReveal delayStep={1}>
         <div className={styles.rolePanelShell}>
           <div className={styles.roleHeader}>
             <div>
@@ -131,6 +135,7 @@ export function LibraryAccess() {
             </ul>
           </article>
         </div>
+        </ScrollReveal>
 
         <VerificationNotice
           message="These access steps combine Senate-approved identification rules with a structured onboarding guide. Current semester registration forms, borrowing limits, and postgraduate quotas must be confirmed by the University Librarian prior to formal publication."
